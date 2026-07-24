@@ -5,6 +5,14 @@ struct Node{
 	struct Node* left;
 	struct Node* right;
 	};
+void preorder(struct Node * root){
+	if (root != NULL)
+	{
+		printf("%d ", root->data);
+		preorder(root->left);
+		preorder(root->right);
+	}
+}
 struct Node* create_node(int data){
 	struct Node* ptr= (struct Node*)malloc(sizeof(struct Node));
 	ptr->left=NULL;
@@ -19,6 +27,7 @@ int main(){
 	p3=create_node(5);
 	p1->left=p2;
 	p2->right=p3;
-	printf("success");
+	preorder(p1);
 	return 0;
 }
+
