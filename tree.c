@@ -5,6 +5,8 @@ struct Node{
 	struct Node* left;
 	struct Node* right;
 	};
+
+//preorder traversal of binary tree
 void preorder(struct Node * root){
 	if (root != NULL)
 	{
@@ -20,6 +22,15 @@ struct Node* create_node(int data){
 	ptr->data=data;
 	return ptr;
 	}
+
+//postorder traversal of binary tree
+void postorder(struct Node * root){
+	if(root!=NULL){
+		postorder(root->left);
+		postorder(root->right);
+		printf("%d ",root->data);
+	}
+}
 int main(){
 	struct Node *p1, *p2, *p3;
 	p1=create_node(3);
@@ -28,6 +39,7 @@ int main(){
 	p1->left=p2;
 	p2->right=p3;
 	preorder(p1);
+	postorder(p1);
 	return 0;
 }
 
