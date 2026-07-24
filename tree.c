@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+//node structure
 struct Node{
 	int data;
 	struct Node* left;
@@ -15,6 +17,8 @@ void preorder(struct Node * root){
 		preorder(root->right);
 	}
 }
+
+//creation of tree nodes using function
 struct Node* create_node(int data){
 	struct Node* ptr= (struct Node*)malloc(sizeof(struct Node));
 	ptr->left=NULL;
@@ -31,6 +35,15 @@ void postorder(struct Node * root){
 		printf("%d ",root->data);
 	}
 }
+
+//inorder traversal of binary tree
+void inorder(struct Node* root){
+	if(root!=NULL){
+		inorder(root->left);
+		printf("%d ",root->data);
+		inorder(root->right);
+	}
+}
 int main(){
 	struct Node *p1, *p2, *p3;
 	p1=create_node(3);
@@ -40,6 +53,7 @@ int main(){
 	p2->right=p3;
 	preorder(p1);
 	postorder(p1);
+	inorder(p1);
 	return 0;
 }
 
