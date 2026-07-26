@@ -44,6 +44,25 @@ void inorder(struct Node* root){
 		inorder(root->right);
 	}
 }
+
+int isBST(struct Node* root){
+	struct Node * prev = NULL;
+	if(root!=NULL){
+		if (!isBST(root->left)){
+			return 0;
+		}
+		if(prev!= NULL && root->data<=prev->data){
+			return 0;
+		}
+		prev=root;
+		return isBST(root->right);
+		
+
+	}
+	else{
+		return 1;
+	}
+}
 int main(){
 	struct Node *p1, *p2, *p3;
 	p1=create_node(3);
@@ -56,4 +75,5 @@ int main(){
 	inorder(p1);
 	return 0;
 }
+
 
