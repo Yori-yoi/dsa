@@ -81,6 +81,30 @@ struct Node * BSTsearch(struct Node*root, int key){
 	}
 }
 
+void insertBST(struct Node * root,int key){
+	struct Node * prev;
+	while(root!=NULL){
+		prev = root;
+		if(key==root->data){
+			return;
+		}
+		else if(key>root->data){
+			root=root->right;
+		}
+		else{
+			root = root->left;
+		}
+	}
+	struct Node * new= create_node(key);
+	if(key<prev->data){
+		prev->left=new;
+	}
+	else{
+		prev->right=new;
+	}
+}
+
+
 struct Node * BSTitersearch(struct Node*root,int key){
 	while(root!=NULL){
 			if(root->data==key){
