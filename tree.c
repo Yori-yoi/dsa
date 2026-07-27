@@ -65,9 +65,12 @@ int isBST(struct Node* root){
 }
 struct Node * BSTsearch(struct Node*root, int key){
 	if(root==NULL){
+		printf("Not found");
 		return NULL;
+
 	}
 	if(root->data==key){
+		printf("Found");
 		return root;
 	}
 	else if(key>root->data){
@@ -76,6 +79,22 @@ struct Node * BSTsearch(struct Node*root, int key){
 	else{
 		return BSTsearch(root->left,key);
 	}
+}
+
+struct Node * BSTitersearch(struct Node*root,int key){
+	while(root!=NULL){
+			if(root->data==key){
+				printf("Found");
+				return root;
+			}
+			else if(key>root->data){
+				root = root->right;
+			}
+			else{
+				root= root->left;
+			}
+		}
+	return NULL;
 }
 int main(){
 	struct Node *p1, *p2, *p3;
