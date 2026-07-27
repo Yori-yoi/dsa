@@ -63,6 +63,20 @@ int isBST(struct Node* root){
 		return 1;
 	}
 }
+struct Node * BSTsearch(struct Node*root, int key){
+	if(root==NULL){
+		return NULL;
+	}
+	if(root->data==key){
+		return root;
+	}
+	else if(key>root->data){
+		return BSTsearch(root->right,key);
+	}
+	else{
+		return BSTsearch(root->left,key);
+	}
+}
 int main(){
 	struct Node *p1, *p2, *p3;
 	p1=create_node(3);
