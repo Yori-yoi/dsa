@@ -120,6 +120,10 @@ struct Node * BSTitersearch(struct Node*root,int key){
 		}
 	return NULL;
 }
+
+void BSTdelete(struct Node * root, int key){
+	
+}
 int main(){
 	struct Node *p1, *p2, *p3;
 	p1=create_node(3);
